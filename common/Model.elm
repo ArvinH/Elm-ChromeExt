@@ -4,4 +4,4 @@ module Model exposing (Model)
 
 
 type alias Model =
-    { clicks : Int }
+    { clicks : Int, selectedContent: String }

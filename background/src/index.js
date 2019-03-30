@@ -2,6 +2,7 @@ import { Elm } from './Main.elm';
 
 let currState = {
   clicks: 0,
+  selectedContent: ''
 }
 
 const app = Elm.Main.init({
@@ -39,8 +40,7 @@ app.ports.broadcast.subscribe(state => {
 chrome.runtime.onMessage.addListener((request, sender) => {
   if (request.kind === 'clicked') {
     app.ports.clicked.send(null)
-  }
-  if (request.selectedContent) {
-    app.ports.selected.send(null)
+  } else if (request.kind === 'selected') {
+    app.ports.selected.send({ clicks: 0, selectedContent: request.selectedContent })
   }
 })

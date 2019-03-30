@@ -1,8 +1,7 @@
-port module Main exposing (Flags, Msg(..), broadcast, clicked, init, main, subscriptions, update)
+port module Main exposing (Flags, Msg(..), broadcast, clicked, selected, init, main, subscriptions, update)
 
 {- BUG? Runtime error if I don't import Json.Decode -}
 
-import Json.Decode
 import Browser
 import Model exposing (Model)
 import Platform exposing ( Program )
@@ -15,7 +14,7 @@ import Platform.Sub exposing ( Sub )
 
 
 port clicked : (() -> msg) -> Sub msg
-
+port selected : (Model -> msg) -> Sub msg
 
 
 -- PORTS TO JAVASCRIPT
@@ -30,7 +29,7 @@ port broadcast : Model -> Cmd msg
 
 init : Flags -> ( Model, Cmd Msg )
 init flags =
-    ( { clicks = flags.clicks }
+    ( { clicks = flags.clicks, selectedContent = flags.selectedContent }
     , Cmd.none
     )
 
@@ -38,6 +37,7 @@ init flags =
 type Msg
     = NoOp
     | Click
+    | Select Model
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -53,13 +53,21 @@ update msg model =
             in
             ( nextModel, broadcast nextModel )
 
+        Select data ->
+            let
+                nextModel =
+                    { model | selectedContent = data.selectedContent }
+            in
+            ( nextModel, broadcast nextModel )
+
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-    clicked (\_ -> Click)
+    selected (\newModels -> Select newModels)
 
 type alias Flags =
-    { clicks : Int
+    { clicks : Int,
+      selectedContent: String
     }
 
 
