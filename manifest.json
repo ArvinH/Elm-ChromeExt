@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+
+  "name": "Example extension with Elm",
+  "description": "This is just a minimalistic example of how to build a Chrome extension with Elm",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_popup": "elmext.html"
+  },
+
+  "permissions": [
+    "activeTab"
+  ]
+}
