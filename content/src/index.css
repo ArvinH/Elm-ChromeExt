@@ -3,13 +3,31 @@ body {
 }
 
 .Content {
-  background-color: red;
-  color: white;
+  background-color: #B8D5B8;
+  color: #000;
+  font-weight: bold;
+  font-size: 16px;
   text-align: center;
-  border: 1px solid white;
   padding: 25px;
-  position: relative;
+  border: 0;
+  position: sticky;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
   top: 0;
   width: 100%;
   z-index: 9999;
+}
+
+.InnerContent {
+  display: inline-block;
+}
+
+.InnerContent div {
+  font-size: 20px;
+  display: inline-block;
+  color: #900606;
+}
+
+.InnerContent .units {
+  display: inline;
+  color: #000;
 }

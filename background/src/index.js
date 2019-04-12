@@ -1,8 +1,7 @@
 import { Elm } from './Main.elm';
 
 let currState = {
-  clicks: 0,
-  selectedContent: ''
+  selectedContent: 0.0
 }
 
 const app = Elm.Main.init({
@@ -41,6 +40,18 @@ chrome.runtime.onMessage.addListener((request, sender) => {
   if (request.kind === 'clicked') {
     app.ports.clicked.send(null)
   } else if (request.kind === 'selected') {
-    app.ports.selected.send({ clicks: 0, selectedContent: request.selectedContent })
+    const selectNum = request.selectedContent.replace(',', '');
+    fetch('https://tw.rter.info/capi.php')
+      .then(function(response) {
+        return response.json()
+      })
+      .then(function(myJson) {
+        const {
+          USDJPY: { Exrate: ExrateJPY },
+          USDTWD: { Exrate: ExrateTWD }
+        } = myJson
+        const result = selectNum * (ExrateTWD / ExrateJPY)
+        app.ports.selected.send({ selectedContent: +result.toFixed(1)})
+      });
   }
 })

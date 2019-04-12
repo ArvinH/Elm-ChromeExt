@@ -57,7 +57,7 @@ subscriptions model =
 
 type alias Flags =
     {
-      selectedContent: String
+      selectedContent: Float
     }
 
 

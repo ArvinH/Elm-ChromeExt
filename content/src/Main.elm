@@ -40,8 +40,22 @@ view model =
     Html.div
         [ Html.Attributes.class "Content"
         ]
-        [
-          Html.text ("[Content App] selected: " ++ model.selectedContent)
+        [     
+          Html.text ("It's "),
+          Html.div
+            [ Html.Attributes.class "InnerContent"
+            ]
+            [
+                Html.div [][
+                    Html.text (String.fromFloat model.selectedContent)
+                ],
+                Html.div
+                    [ Html.Attributes.class "units"
+                    ]
+                    [
+                        Html.text (" TWD")
+                    ]
+            ]
         ]
 
 

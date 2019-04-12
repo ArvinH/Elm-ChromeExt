@@ -3,7 +3,7 @@ require('./index.css')
 const mountNode = document.createElement('div')
 document.body.prepend(mountNode)
 
-import { Elm } from './Main.elm';
+import { Elm } from './Main.elm'
 
 let app
 
