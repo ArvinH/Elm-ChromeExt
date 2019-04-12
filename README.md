@@ -2,6 +2,8 @@
 
 For learning how to create Chrome extension by Elm, I forked this repo and update it to Elm 0.19.
 
+![screenshot](./demo.png)
+
 # elm-chrome-extension
 
 This experimental project demonstrates a Chrome extension composed of
