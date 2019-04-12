@@ -4,4 +4,4 @@ module Model exposing (Model)
 
 
 type alias Model =
-    { selectedContent: String }
+    { selectedContent: String, currencyRateData: {} }
