@@ -40,7 +40,7 @@ view model =
     Html.div
         [ Html.Attributes.class "Content"
         ]
-        [ Html.text ("[Content App] clicks: " ++ String.fromInt model.clicks),
+        [
           Html.text ("[Content App] selected: " ++ model.selectedContent)
         ]
 
