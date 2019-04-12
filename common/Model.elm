@@ -4,4 +4,4 @@ module Model exposing (Model)
 
 
 type alias Model =
-    { result: Float, selectedContent: Float, exrateTWD: Float, exrateJPY: Float }
+    { result: Float, selectedContent: Int, exrateTWD: Float, exrateJPY: Float }

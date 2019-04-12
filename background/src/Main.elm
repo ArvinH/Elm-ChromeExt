@@ -51,7 +51,7 @@ update msg model =
         Select data ->
             let
                 nextModel =
-                    { model | result = data.selectedContent * (data.exrateTWD / data.exrateJPY) }
+                    { model | result = (toFloat data.selectedContent) * (data.exrateTWD / data.exrateJPY) }
             in
             ( nextModel, broadcast nextModel )
 
@@ -62,7 +62,7 @@ subscriptions model =
 
 type alias Flags =
     {
-      selectedContent: Float,
+      selectedContent: Int,
       exrateTWD: Float,
       exrateJPY: Float,
       result: Float

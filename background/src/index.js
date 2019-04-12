@@ -1,7 +1,7 @@
 import { Elm } from './Main.elm';
 
 let currState = {
-  selectedContent: 0.0,
+  selectedContent: 0,
   exrateTWD: 0.0,
   exrateJPY: 0.0,
   result: 0.0
@@ -53,8 +53,7 @@ chrome.runtime.onMessage.addListener((request, sender) => {
           USDJPY: { Exrate: ExrateJPY },
           USDTWD: { Exrate: ExrateTWD }
         } = myJson
-        const result = selectNum * (ExrateTWD / ExrateJPY)
-        app.ports.selected.send({ result: result, exrateTWD: ExrateTWD, exrateJPY: ExrateJPY, selectedContent: +result.toFixed(1)})
+        app.ports.selected.send({ result: 0.0, exrateTWD: ExrateTWD, exrateJPY: ExrateJPY, selectedContent: +selectNum})
       });
   }
 })
