@@ -7,7 +7,7 @@ import Model exposing (Model)
 import Platform exposing ( Program )
 import Platform.Cmd exposing ( Cmd )
 import Platform.Sub exposing ( Sub )
-
+import Round
 
 
 -- PORTS FROM JAVASCRIPT
@@ -27,7 +27,12 @@ port broadcast : Model -> Cmd msg
 
 init : Flags -> ( Model, Cmd Msg )
 init flags =
-    ( { selectedContent = flags.selectedContent }
+    ( {
+        selectedContent = flags.selectedContent,
+        exrateTWD = flags.exrateTWD,
+        exrateJPY = flags.exrateJPY,
+        result = flags.result
+     }
     , Cmd.none
     )
 
@@ -46,7 +51,7 @@ update msg model =
         Select data ->
             let
                 nextModel =
-                    { model | selectedContent = data.selectedContent }
+                    { model | result = data.selectedContent * (data.exrateTWD / data.exrateJPY) }
             in
             ( nextModel, broadcast nextModel )
 
@@ -57,7 +62,10 @@ subscriptions model =
 
 type alias Flags =
     {
-      selectedContent: Float
+      selectedContent: Float,
+      exrateTWD: Float,
+      exrateJPY: Float,
+      result: Float
     }
 
 

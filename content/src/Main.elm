@@ -4,6 +4,7 @@ import Html exposing (Html)
 import Html.Attributes
 import Browser
 import Model exposing (Model)
+import Round exposing (round)
 
 
 
@@ -47,7 +48,7 @@ view model =
             ]
             [
                 Html.div [][
-                    Html.text (String.fromFloat model.selectedContent)
+                    Html.text (round 2 model.result)
                 ],
                 Html.div
                     [ Html.Attributes.class "units"
