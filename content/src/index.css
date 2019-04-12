@@ -8,7 +8,7 @@ body {
   text-align: center;
   border: 1px solid white;
   padding: 25px;
-  position: absolute;
+  position: relative;
   top: 0;
   width: 100%;
   z-index: 9999;

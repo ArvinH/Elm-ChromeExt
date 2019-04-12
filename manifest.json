@@ -8,8 +8,7 @@
     "persistent": true
   },
   "browser_action": {
-    "default_title": "elm-chrome-extension example",
-    "default_popup": "popup.html"
+    "default_title": "elm-chrome-extension example"
   },
   "content_scripts": [
     {
