@@ -41,9 +41,7 @@ app.ports.broadcast.subscribe(state => {
 })
 
 chrome.runtime.onMessage.addListener((request, sender) => {
-  if (request.kind === 'clicked') {
-    app.ports.clicked.send(null)
-  } else if (request.kind === 'selected') {
+  if (request.kind === 'selected') {
     const selectNum = request.selectedContent.replace(',', '');
     fetch('https://tw.rter.info/capi.php')
       .then(function(response) {
