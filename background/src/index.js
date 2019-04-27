@@ -14,6 +14,7 @@ const app = Elm.Main.init({
 // the currently connected ports
 const listeners = new Set()
 
+// Sync state to content for first init
 chrome.runtime.onConnect.addListener(port => {
   console.assert(port.name === 'broadcast')
 
