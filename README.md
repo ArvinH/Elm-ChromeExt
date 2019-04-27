@@ -1,4 +1,4 @@
-# elm-chrome-extension
+# currency-converter-elm
 
 ![screenshot](./demo.gif)
 
