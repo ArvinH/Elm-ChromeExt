@@ -7,10 +7,6 @@ import { Elm } from './Main.elm';
 
 let app;
 
-// document.addEventListener('click', () => {
-//   chrome.runtime.sendMessage({ kind: 'clicked' })
-// })
-
 document.addEventListener('mouseup', () => {
   const selectedObj = window.getSelection();
   const selectedNode = selectedObj.anchorNode;
