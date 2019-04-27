@@ -1,7 +1,3 @@
-body {
-  margin-top: 100px !important;
-}
-
 .Content {
   background-color: #B8D5B8;
   color: #000;
@@ -10,10 +6,10 @@ body {
   text-align: center;
   padding: 25px;
   border: 0;
-  position: sticky;
+  position: absolute;
+  display: none;
   box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
   top: 0;
-  width: 100%;
   z-index: 9999;
 }
 
